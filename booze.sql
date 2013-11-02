@@ -41,7 +41,7 @@ CREATE TABLE drinky.log (
 		action varchar (50) NOT NULL
 		);
 
-
+\copy drinky.alcohols from 'booze.csv' WITH DELIMITER AS ',' CSV QUOTE AS '"';
 
 
 ALTER TABLE drinky.alcohols ADD drink_id serial;

@@ -1,9 +1,6 @@
 <div class='container'>
-<div class="rating text-center">
-	<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
-</div>
+	<h2><?php echo $username; ?>'s ratings:</h2>
 
-    
 <?php
 foreach ($dashboard as $title => $tbl) {
 	echo "<legend>$title</legend>";
@@ -22,6 +19,6 @@ foreach ($dashboard as $title => $tbl) {
 }
 ?>
 
+
 </div>
 	
-

@@ -1,15 +1,13 @@
-<body>
   <div class="container" style='margin-top:50px;'>
-  <div class="col-lg-4 col-lg-offset-4 text-center ">
+  <div class="col-md-4 col-md-offset-4 text-center ">
     <h1 class='bigTitle'>
-    Log in
-  </h1><br />
+      Log in
+    </h1>
+  <br />
   <div class="panel-body">
-   <?php echo form_open('verify'); ?>
-
-    <form class='form form-horizontal' method='POST'><br />
+    <form class='form form-horizontal' method='POST' action='verify'><br />
       <div class='form-group'>
-        <input type="text" name="username" id="username" class="form-control input-" placeholder="User name">
+        <input type="email" name="username" id="username" class="form-control input-" placeholder="Email">
       </div>
       <div class='form-group'>
         <input type="password" name="password" id="password" class="form-control input-" placeholder="Password">
@@ -19,5 +17,8 @@
       </div>
     </form>
   </div>
-        <a href='register' class="btn btn-link btn-block">Create a new account</a>
-      </div>
+  
+      <p class='text-center text-sm text-muted'>Not a member?
+        <a href='register' class="">Sign up</a>
+    </p>
+  </div>

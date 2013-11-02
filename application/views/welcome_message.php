@@ -7,18 +7,22 @@
 
 <br /><br />
     <div class='col-lg-12 text-center'>
-    <h1 class=' iconTitle'>
-    </h1>   
     <h1 class='bigTitle'>
-    Drink rank
+    wine-Oh!
     </h1>   
     <p class='lead' style='font-family:helvetica;font-size:1.2pc;color:#112244;'>
         Rate & remember your beverage selections
     </p>
 <br />
 
-    <a class="btn btn-primary" href='index.php/register'>Create your account</a>
-    <a class="btn btn-default " href='index.php/login'>Sign in</a>
+    <a class="btn btn-warning" href='index.php/register'>
+    	<i class='fa fa-arrow-right '></i>
+    	Get Started
+    </a>
+    <a class="btn btn-default " href='index.php/login'>
+    	Log in
+
+    </a>
     </div>
 <br />
 <br />
