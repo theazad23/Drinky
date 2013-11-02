@@ -16,10 +16,8 @@
 <br />
 
     <a class="btn btn-link" href='index.php/register'>Create your account</a>
-    <a class="btn btn-primary " href='index.php/login'>Log in to iDrink</a>
+    <a class="btn btn-primary btn-lg " href='index.php/login'>Sign in</a>
     </div>
-<br />
-<br />
 <br />
 <br />
 <br />
@@ -32,7 +30,7 @@
 
   <div class="col-md-4">
   	<h3>
-    <i class="fa fa-clock-o f-2x text-success "></i>
+    <i class="fa fa-clock-o fa-2x text-default "></i>
     Less thinking.
     </h3>
 	<p>Stop staring at shelves. Search for the tree wine. Oh, you gave it two stars in November because it gave you a wicked headache. 
@@ -44,7 +42,7 @@
 
   <div class="col-md-4">
   	<h3>
-    <i class="fa fa-beer fa-2 text-success "></i>
+    <i class="fa fa-beer fa-2x text-default "></i>
     More drinking.
     </h3>
     <p>You don't remember wether or not you liked that wine you've been staring at on the shelf. Drinky says "omg deliicious" and "headache"
@@ -55,7 +53,7 @@
 
   <div class="col-md-4">
   	<h3>
-    <i class="fa fa-envelope a-2x text-success "></i>
+    <i class="fa fa-envelope fa-2x text-default "></i>
     Easy as %@*#
     </h3>
     <p>This app will send you an email the day after you bought the wine and ask you how it was. You can change when you recieve these emails. 

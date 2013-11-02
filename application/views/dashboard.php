@@ -1,5 +1,9 @@
 <div class='container'>
 		<div class='panel-body'>
+
+    <i class="fa fa-star fa-2x text-default rating"></i>
+
+    
 <?php
 foreach ($everything as $title => $tbl) {
 	echo "<legend>$title</legend>";
@@ -17,6 +21,10 @@ foreach ($everything as $title => $tbl) {
 	}
 }
 ?>
+
+
+
 	</div>
 </div>
 	
+

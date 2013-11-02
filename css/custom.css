@@ -13,10 +13,10 @@ hr {
 
     border: 0;
     height: 1px;
-    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
-    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.75), rgba(0,0,0,0)); 
+    background-image: -webkit-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.25), rgba(0,0,0,0)); 
+    background-image:    -moz-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.25), rgba(0,0,0,0)); 
+    background-image:     -ms-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.25), rgba(0,0,0,0)); 
+    background-image:      -o-linear-gradient(left, rgba(0,0,0,0), rgba(0,0,0,0.25), rgba(0,0,0,0)); 
 
 
 }
@@ -70,7 +70,11 @@ body {
 	color:#2d2d3d;
 }
 
+h3 {
 
+text-shadow:0px 1px 0px #fdfffd;
+
+}
 
 .littleTitle {
 	font-size:1pc;line-height:110px;font-weight:600;font-family:'arial';text-shadow:0px 1px 0px #fcfcfc;color:#3d2d2d;
@@ -80,6 +84,16 @@ body {
 .text-white {
 	color:white!imporant;
 }
+
+.rating {
+	color:#aaa;
+}
+
+.rating:hover {
+	color:#446;
+	text-shadow:1px 1px 4px white;
+}
+
 
 
 
