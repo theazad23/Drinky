@@ -3,22 +3,21 @@
 class dashboard extends CI_Controller {
 
    public function index() {
-      /*
       if ($this->session->userdata('logged_in')) {
          $session_data = $this->session->userdata('logged_in');
+         $data['username'] = $session_data->username;
       } else {
          redirect('login', 'refresh');
       }
-      */
+
+
       $this->load->view('header');
-      $this->load->view('console');
-   
 
       $this->load->model('testmodel');
 
-      $data['everything'] = $this->testmodel->getEverthing();
-
+      $data['dashboard'] = $this->testmodel->getDashBoard($session_data->username);
       $this->load->view('dashboard', $data);
+      
    }
 
 }

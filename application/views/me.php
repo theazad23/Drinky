@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
   <div class="container">
   <div class="navbar-header">
     <script src="path/to/javascripts/bootstrap-rating-input.min.js" type="text/javascript"></script>
@@ -12,6 +12,14 @@
     <i class="fa fa-beer"></i>
      </a>
   </div>
+   <form class="navbar-form navbar-left" method="POST" action="/~cs3380f13grp12/rate.php">
+          <div class='form-group'>
+          <input type="text" class="typeahead form-control" name='brand' placeholder="booze">
+          </div>
+          <div class='form-group'>
+          <input type="submit" class='btn btn-default'>
+          </div>
+    </form>
   <div class="collapse navbar-collapse navbar-ex1-collapse">
   <ul class="nav navbar-nav">
     <li><a href="">Option</a></li>
@@ -30,3 +38,25 @@
  </div>
 </nav>
 </div>
+  <body>
+    <div class="container">
+      <br /><br />
+      <div class='text-center'>
+      <p class='center' style="font-size:30px;">
+        <i class="fa fa-beer"></i>
+      </p>
+    </div>
+    <script type='text/javascript'>
+      
+      $('.typeahead').typeahead({                                
+        name: 'countries',                                                          
+        prefetch: 'prefetch.php',
+        limit: 100                                                                   
+      });
+
+    </script>
+
+  </body>
+</html>
+
+

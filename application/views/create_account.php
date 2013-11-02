@@ -1,7 +1,8 @@
   <div class="container" style='margin-top:50px;'>
   <div class="col-md-4 col-md-offset-4 text-center ">
     <h1 class='bigTitle'>
-        Sign up</h1>
+        Sign up
+    </h1>
 <br />
   <div class="panel-body">
     <form class='form form-horizontal' method='POST' action='register'><br />

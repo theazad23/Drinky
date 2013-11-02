@@ -1,11 +1,11 @@
 <div class='container'>
-		<div class='panel-body'>
-
-    <i class="fa fa-star fa-2x text-default rating"></i>
+<div class="rating text-center">
+	<span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+</div>
 
     
 <?php
-foreach ($everything as $title => $tbl) {
+foreach ($dashboard as $title => $tbl) {
 	echo "<legend>$title</legend>";
 	foreach ($tbl as $att) {
 		echo "<div class='col-md-3'>";
@@ -22,9 +22,6 @@ foreach ($everything as $title => $tbl) {
 }
 ?>
 
-
-
-	</div>
 </div>
 	
 

@@ -29,7 +29,7 @@ hr {
 
 body {
 
-	background: #e1f2fc; 
+	background: #e3e5e9; 
 
 
 }
@@ -85,15 +85,24 @@ text-shadow:0px 1px 0px #fdfffd;
 	color:white!imporant;
 }
 
+
 .rating {
-	color:#aaa;
+  unicode-bidi: bidi-override;
+  font-size:50px;
+  direction: rtl;
 }
-
-.rating:hover {
-	color:#446;
-	text-shadow:1px 1px 4px white;
+.rating > span {
+  display: inline-block;
+  position: relative;
+  width: 1.1em;
 }
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+   content: "\2605";
 
+	clolr:blue;   
+	position: absolute;
+}
 
 
 
