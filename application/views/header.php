@@ -8,7 +8,7 @@
 <meta name="author" content="">
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.css'); ?>" />
 <link rel="stylesheet" href="<?php echo base_url('css/custom.css'); ?>" />
-
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
 <link href="css/custom.css" rel="stylesheet">
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.js'); ?>"></script>

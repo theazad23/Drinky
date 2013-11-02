@@ -1,4 +1,4 @@
-<nav class="navbar navbar-default" role="navigation">
+<nav class="navbar navbar-inverse" role="navigation">
   <div class="container">
   <div class="navbar-header">
     <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -7,11 +7,14 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand brandTitle" href="<?php echo base_url('index.php/console'); ?>"> Drinky </a>
+    <a class="navbar-brand brandTitle" href="<?php echo base_url('index.php/console'); ?>">
+    <i class="fa fa-beer"></i>
+    <i class="fa fa-check"></i>
+     </a>
   </div>
   <div class="collapse navbar-collapse navbar-ex1-collapse">
   <ul class="nav navbar-nav">
-    <li><a href="">OPTION</a></li>
+    <li><a href="">Option</a></li>
   </ul>
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown" >

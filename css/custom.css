@@ -40,7 +40,6 @@ body {
 
 .navbar {
 
-	background: #d8d8e8;
 
 }
 
@@ -53,15 +52,26 @@ body {
 	color:#fff!important;
 }
 
-
+.iconTitle {
+	font-family:'baskerville';color:#779!important;
+	text-shadow: 0px 1px 5px #fff;
+	font-size:30px;
+}
 
 .brandTitle {
-	font-weight:600;color:#2d2d2d!important;
+	font-family:'baskerville';color:#fff!important;
+	text-shadow: 0px 1px 5px #888;
+}
+.brandTitle:hover {
+	text-shadow: 0px 1px 15px #bbb;
 }
 
 
 .bigTitle {
-	font-size:4pc;line-height:60px;font-weight:600;font-family:'baskerville';text-shadow:0px 1px 1px #fff;color:#3d2d2d;
+	font-size:6pc;line-height:5pc;font-weight:800;
+	font-family:'baskerville';
+	text-shadow:0px 1px 1px #fff;
+	color:#2d2d3d;
 }
 
 

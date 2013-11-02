@@ -4,8 +4,18 @@ class Welcome extends CI_Controller {
 
 	public function index() {
 		$this->load->view('header');
-		$data['title'] = "Application Lottery & Wait List.";
-		$data['description'] = "";
-		$this->load->view('welcome_message', $data);
+		$this->load->view('welcome_message');
 	}
+
+
+
+	public function landing() {
+		$this->load->view('header');
+		$this->load->view('welcome_message');
+	}
+
+
+
+
+
 }
