@@ -9,7 +9,6 @@
     </button>
     <a class="navbar-brand brandTitle" href="<?php echo base_url('index.php/console'); ?>">
     <i class="fa fa-beer"></i>
-    <i class="fa fa-check"></i>
      </a>
   </div>
   <div class="collapse navbar-collapse navbar-ex1-collapse">

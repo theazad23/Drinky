@@ -2,7 +2,7 @@
   <div class="container" style='margin-top:50px;'>
   <div class="col-lg-4 col-lg-offset-4 text-center ">
     <h1 class='bigTitle'>
-    Login.
+    Login
   </h1><br /><br />
   <div class="panel-body">
    <?php echo form_open('verify'); ?>
