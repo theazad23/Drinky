@@ -1,4 +1,4 @@
-drinky
+Drinky
 ======
 
 Remember and rate your beverages.
