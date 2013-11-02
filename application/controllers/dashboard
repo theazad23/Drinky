@@ -1,0 +1,25 @@
+<?php
+
+class dashboard extends CI_Controller {
+
+   public function index() {
+      /*
+      if ($this->session->userdata('logged_in')) {
+         $session_data = $this->session->userdata('logged_in');
+      } else {
+         redirect('login', 'refresh');
+      }
+      */
+      $this->load->view('header');
+      $this->load->view('console');
+   
+
+      $this->load->model('testmodel');
+
+      $data['everything'] = $this->testmodel->getEverthing();
+
+      $this->load->view('dashboard', $data);
+   }
+
+}
+?>
