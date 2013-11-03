@@ -16,7 +16,6 @@
 <br />
 
     <a class="btn btn-warning" href='index.php/register'>
-    	<i class='fa fa-arrow-right '></i>
     	Get Started
     </a>
     <a class="btn btn-default " href='index.php/login'>
