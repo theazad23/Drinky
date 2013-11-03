@@ -7,13 +7,19 @@
 <meta name="description" content="">
 <meta name="author" content="">
 <link rel="stylesheet" href="<?php echo base_url('css/bootstrap.css'); ?>" />
+<link rel="stylesheet" href="<?php echo base_url('css/chosen.min.css'); ?>" />
 <link rel="stylesheet" href="<?php echo base_url('css/custom.css'); ?>" />
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.1/css/font-awesome.css" rel="stylesheet">
-<link href="css/custom.css" rel="stylesheet">
+<link rel="stylesheet/less" type="text/css" href="<?php echo base_url('css/bootstrap-chosen.less'); ?>" />
+<script type="text/javascript" src="<?php echo base_url('js/less.js'); ?>"></script>
 
 <script type="text/javascript" src="<?php echo base_url('js/jquery.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/bootstrap.js'); ?>"></script>
 <script type="text/javascript" src="<?php echo base_url('js/typeahead.js'); ?>"></script>
+<script type="text/javascript" src="<?php echo base_url('js/chosen.jquery.js'); ?>"></script>
 <title>Drinky</title>
 </head>
 <body>
+
+
+
