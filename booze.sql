@@ -31,8 +31,8 @@ CREATE TABLE drinky.admin_info (
 		username varchar(30),
 		password_hash char(40) NOT NULL,
 		salt char(40) NOT NULL,
-		joined date DEFAULT now()
-
+		joined date DEFAULT now(),
+		activation varchar(50)
 		);
 
 CREATE TABLE drinky.alcohols (

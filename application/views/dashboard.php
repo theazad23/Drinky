@@ -1,7 +1,20 @@
 <div class='container'>
 	<h2><?php echo $username; ?>'s ratings:</h2>
 
+<form method='POST' name='userinput' action='me'>
+	<tr><td>How would you like to sort your rated beverages?</td><td><select name='order'>
+		<option value='highestrated'>By rating from highest to lowest</option>
+                <option value='lowestrated'>By rating from lowest to highest</option>
+		<option value='mostrecent'>By date from most recent to least recent</option>
+		<option value='leastrecent'>By date from least recent to most recent</option>
+	</select></td></tr>
+	<input type='submit' name='submit' value='Submit'>
+</form>
+
+
+
 <?php
+
 
 foreach ($dashboard as $title => $tbl) {
 	echo "<legend>$title</legend>";

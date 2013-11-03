@@ -56,6 +56,7 @@ class me extends CI_Controller {
 		redirect(site_url("console/dashboard"), 'refresh');
    	}
 
+
  	public function dashboard() {
 
 		if ($this->session->userdata('logged_in')) {
@@ -65,20 +66,86 @@ class me extends CI_Controller {
 			redirect('login', 'refresh');
 		}
 
+		$submitted = $this->input->post();	
+		$ordered = $this->input->post('order');
+		if($submitted)
+		{
+			if($ordered == 'highestrated')
+			{
+			$this->db->distinct('alcohol_name');
+                        $this->db->from('drinky.ratings');
+                        $this->db->where('username' ,$data['username']);
+                        $this->db->order_by('rating', 'desc');
 
-		$this->db->distinct('alcohol_name');
-		$this->db->from('drinky.ratings');
-		$this->db->where('username' ,$data['username']);
+                        $table_data = $this->db->get();
 
-		$table_data = $this->db->get();
+                        $data['dashboard']['Drinks'] = $table_data->result();
 
-		$data['dashboard']['Drinks'] = $table_data->result();
+                        $this->load->view('header');
+                        $this->load->view('me', $session_data);
+                        $this->load->view('dashboard', $data);
+			}
+			else if($ordered == 'lowestrated')
+			{
+			$this->db->distinct('alcohol_name');
+                        $this->db->from('drinky.ratings');
+                        $this->db->where('username' ,$data['username']);
+                        $this->db->order_by('rating', 'asc');
 
-		$this->load->view('header');
-		$this->load->view('me', $session_data);
-		$this->load->view('dashboard', $data);
+                        $table_data = $this->db->get();
 
+                        $data['dashboard']['Drinks'] = $table_data->result();
 
+                        $this->load->view('header');
+                        $this->load->view('me', $session_data);
+                        $this->load->view('dashboard', $data);
+			}
+			else if ($ordered == 'mostrecent')
+			{
+			$this->db->distinct('alcohol_name');
+                        $this->db->from('drinky.ratings');
+                        $this->db->where('username' ,$data['username']);
+                        $this->db->order_by('rated', 'desc');
+
+                        $table_data = $this->db->get();
+
+                        $data['dashboard']['Drinks'] = $table_data->result();
+
+                        $this->load->view('header');
+                        $this->load->view('me', $session_data);
+                        $this->load->view('dashboard', $data);
+			}
+			else if($ordered == 'leastrecent')
+			{
+			$this->db->distinct('alcohol_name');
+                        $this->db->from('drinky.ratings');
+                        $this->db->where('username' ,$data['username']);
+                        $this->db->order_by('rated', 'asc');
+
+                        $table_data = $this->db->get();
+
+                        $data['dashboard']['Drinks'] = $table_data->result();
+
+                        $this->load->view('header');
+                        $this->load->view('me', $session_data);
+                        $this->load->view('dashboard', $data);
+			}
+			}
+		else
+		{
+			$this->db->distinct('alcohol_name');
+                        $this->db->from('drinky.ratings');
+                        $this->db->where('username' ,$data['username']);
+                        $this->db->order_by('rating', 'desc');
+
+                        $table_data = $this->db->get();
+
+                        $data['dashboard']['Drinks'] = $table_data->result();
+
+                        $this->load->view('header');
+                        $this->load->view('me', $session_data);
+                        $this->load->view('dashboard', $data);
+		}
    	}
 
 	public function rate() {
@@ -148,9 +215,7 @@ class me extends CI_Controller {
       $this->load->view('dashboard', $data);
    }
 
-
-
-
+	
 
 
 
