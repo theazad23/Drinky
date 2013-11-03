@@ -12,11 +12,9 @@
 	</div>
 	</h1>
 
-<legend>
-</legend>
+<legend></legend>
 
 	<i class='fa fa-user fa-2x pull-left'></i>
-
 	<div class="rating text-left">
 
 		<?php 
@@ -47,26 +45,44 @@
 			<br /><br />
 
 
+        
+        <div>
+          <em>Tags</em>
+ <select data-placeholder="Your Favorite Types of Bear" multiple class="chosen-select" style="width:350px;" tabindex="18" id="multiple-label-example">
+            <option selected>Amazing</option>
+            <option>Too sweet</option>
+            <option>Rediculous</option>
+            <option>Hangover!</option>
+            <option>good with twinkies</option>
+          </select>
+        </div>
+      </div>
+
+  <script type="text/javascript">
+    var config = {
+      '.chosen-select'           : {},
+      '.chosen-select-deselect'  : {allow_single_deselect:true},
+      '.chosen-select-no-single' : {disable_search_threshold:10},
+      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-width'     : {width:"95%"}
+    }
+    for (var selector in config) {
+      $(selector).chosen(config[selector]);
+    }
+  </script>
+  </form>
 
 
-<!-- Large button group -->
-<h2> Ask me how this was </h2>
 
-<!-- Split button -->
-<div class="btn-group">
-  <button type="button" class="btn btn-danger">Action</button>
-  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
-    <span class="caret"></span>
-    <span class="sr-only">Toggle Dropdown</span>
-  </button>
-  <ul class="dropdown-menu" role="menu">
-    <li><a href="#">Action</a></li>
-    <li><a href="#">Another action</a></li>
-    <li><a href="#">Something else here</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-  </ul>
-</div>
+
+
+
+
+
+
+
+
+
 
 
 

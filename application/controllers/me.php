@@ -39,14 +39,12 @@ class me extends CI_Controller {
    
 	public function reset_db() {
 
-
 		// read the file
 		$file = $this->load->file('alcohols.sql', true);
 		// explode it in an array
 		$file_array = explode('\n', $file);
 		// execute the exploded text content
 		$this->db->query($file);
-
 
 		// add admin credentials
 		$this->load->model('user');
@@ -99,12 +97,8 @@ class me extends CI_Controller {
 				'alcohol_name' => $brand,
 				'rating' => $rating,
 				'username' => $data['username']
-		  	
 		  	));
-
-
 		}
-
 
 		$this->db->select('*');
 		$this->db->from('drinky.alcohols');
@@ -113,7 +107,6 @@ class me extends CI_Controller {
 
 		$data['drink'] = $table_data->result();
 
-
 		$this->db->select_avg('rating');
 		$this->db->from('drinky.ratings');
 		$this->db->where('alcohol_name', $brand);
@@ -121,10 +114,6 @@ class me extends CI_Controller {
 
 		$average_rating = $query->result();
 		$data['average_rating'] = $average_rating[0]->rating;
-
-
-
-
 
 		$this->load->view('header');
 		$this->load->view('me', $session_data);

@@ -27,6 +27,14 @@ CREATE TABLE drinky.ratings (
 		rated date DEFAULT now()
 		);
 
+CREATE TABLE drinky.tags (
+		tag_id serial primary key,
+		username varchar(30),
+		tag varchar(30),
+		alcohol_name varchar (60),
+		tagged date DEFAULT now()
+		);
+
 CREATE TABLE drinky.admin_info (
 		username varchar(30),
 		password_hash char(40) NOT NULL,
@@ -54,7 +62,5 @@ CREATE TABLE drinky.log (
 \copy drinky.alcohols from 'booze.csv' WITH DELIMITER AS ',' CSV QUOTE AS '"';
 
 insert into drinky.admin_info (username, password_hash, salt) VALUES ('a','a','1');
-
-
 
 ALTER TABLE drinky.alcohols ADD drink_id serial;
