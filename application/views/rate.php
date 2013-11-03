@@ -45,14 +45,33 @@
 			?>
 		</p>
 			<br /><br />
-			<b>Retail Price:</b>
-			<?php echo $drink[0]->price; ?>
 
 
 
 
+<!-- Large button group -->
+<h2> Ask me how this was </h2>
 
-<h2>Getting this?</h2>
+<!-- Split button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger">Action</button>
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
+    <span class="caret"></span>
+    <span class="sr-only">Toggle Dropdown</span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">Action</a></li>
+    <li><a href="#">Another action</a></li>
+    <li><a href="#">Something else here</a></li>
+    <li class="divider"></li>
+    <li><a href="#">Separated link</a></li>
+  </ul>
+</div>
+
+
+
+
+</h2>
 			</div>
 		</div>
 	</div>
