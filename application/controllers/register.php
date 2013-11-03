@@ -10,7 +10,7 @@ class register extends CI_Controller {
          $this->load->model('user');
          $this->user->create_account($_POST['username'], $_POST['password']);
          $data['message'] = "Created account " . $_POST['username'];
-      }
+
       $this->load->view('header');
       $this->load->view('create_account', $data);
    }
