@@ -39,15 +39,14 @@ class me extends CI_Controller {
    
 	public function reset_db() {
 
-		// Don't use this unless you fix import of booze.csv
-		//read the file
-		$file       = $this->load->file('booze.sql', true);
-		//explode it in an array
+
+		// read the file
+		$file = $this->load->file('alcohols.sql', true);
+		// explode it in an array
 		$file_array = explode('\n', $file);
-		//execute the exploded text content
-		foreach ($file_array as $query) {
-		$this->db->query($query);
-		}
+		// execute the exploded text content
+		$this->db->query($file);
+
 
 		// add admin credentials
 		$this->load->model('user');
@@ -66,9 +65,12 @@ class me extends CI_Controller {
 			redirect('login', 'refresh');
 		}
 
-		$this->db->select('alcohol_name','my_avg_rating');
-		$this->db->from('drinky.user_info');
+
+		$this->db->select('alcohol_name, rating, rated');
+		$this->db->from('drinky.ratings');
 		$this->db->where('username' ,$data['username']);
+		$this->db->group_by('alcohol_name, rating, rated');
+
 		$table_data = $this->db->get();
 
 		$data['dashboard']['Drinks'] = $table_data->result();
@@ -90,6 +92,21 @@ class me extends CI_Controller {
 			redirect('login', 'refresh');
 		}
 
+		if (isset($_GET['rating'])) {
+
+			$rating = $_GET['rating'];
+			$this->db->insert('drinky.ratings', array( 
+
+				'alcohol_name' => $brand,
+				'rating' => $rating,
+				'username' => $data['username']
+		  	
+		  	));
+
+
+		}
+
+
 		$this->db->select('*');
 		$this->db->from('drinky.alcohols');
 		$this->db->where('brand' ,$brand);
@@ -97,11 +114,22 @@ class me extends CI_Controller {
 
 		$data['drink'] = $table_data->result();
 
+
+		$this->db->select_avg('rating');
+		$this->db->from('drinky.ratings');
+		$this->db->where('alcohol_name', $brand);
+		$query = $this->db->get();
+
+		$average_rating = $query->result();
+		$data['average_rating'] = $average_rating[0]->rating;
+
+
+
+
+
 		$this->load->view('header');
 		$this->load->view('me', $session_data);
 		$this->load->view('rate', $data);
-
-
    }
 
 

@@ -9,7 +9,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand brandTitle" href="<?php echo base_url(''); ?>">
+    <a class="navbar-brand brandTitle" href="<?php echo base_url('index.php/me/dashboard'); ?>">
     <i class="fa fa-glass"></i>
      </a>
   </div>
@@ -30,10 +30,30 @@
     <ul class="nav navbar-nav navbar-right">
       <li class="dropdown" >
         <a href="#" class="dropdown-toggle" data-toggle="dropdown" >
+          <i class="fa fa-user fa-fw"></i>
+
           <?php echo $username; ?>
           <b class="caret"></b></a>
           <ul class="dropdown-menu">
-          <li><a href="logout">Log out</a></li>
+
+          <li><a href="<?php echo base_url('/index.php/me/dashboard'); ?>">
+            <i class="fa fa-star fa-fw"></i>
+           Ratings
+          </a></li>
+
+          <li><a href="<?php echo base_url('/index.php/me/settings'); ?>">
+          <li><a href="dashboard">
+            <i class="fa fa-gears fa-fw"></i>
+           Settings
+          </a></li>
+
+          <li class="divider"></li>
+          
+          <li><a href="<?php echo base_url('/index.php/me/logout'); ?>">
+            <i class="fa fa-sign-out fa-fw"></i>
+            Log out
+          </a></li>
+
         </ul>
       </li>
     </ul>

@@ -1,6 +1,9 @@
 DROP SCHEMA IF EXISTS drinky CASCADE;
 CREATE SCHEMA drinky;
 
+ALTER SCHEMA drinky OWNER TO cs3380f13grp12;
+
+
 SET search_path = public;
 
 
@@ -13,16 +16,23 @@ SET search_path = public;
 
 
 CREATE TABLE drinky.user_info (
-		username varchar(30) PRIMARY KEY,
-		my_avg_rating float,
-		alcohol_name varchar (30)
+		username varchar(30) PRIMARY KEY
+		);
+
+CREATE TABLE drinky.ratings (
+		rating_id serial primary key,
+		username varchar(30),
+		rating int not null,
+		alcohol_name varchar (60),
+		rated date DEFAULT now()
 		);
 
 CREATE TABLE drinky.admin_info (
 		username varchar(30),
 		password_hash char(40) NOT NULL,
 		salt char(40) NOT NULL,
-		FOREIGN KEY (username) REFERENCES drinky.user_info(username)
+		joined date DEFAULT now()
+
 		);
 
 CREATE TABLE drinky.alcohols (
@@ -42,6 +52,9 @@ CREATE TABLE drinky.log (
 		);
 
 \copy drinky.alcohols from 'booze.csv' WITH DELIMITER AS ',' CSV QUOTE AS '"';
+
+insert into drinky.admin_info (username, password_hash, salt) VALUES ('a','a','1');
+
 
 
 ALTER TABLE drinky.alcohols ADD drink_id serial;
