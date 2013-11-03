@@ -10,6 +10,8 @@ foreach ($dashboard as $title => $tbl) {
 		echo "<div class='col-md-4 '>";
 		echo "<div class=' panel panel-default'>";
 		echo "<div class='panel-heading'><b>".$item->alcohol_name."<b></div>";
+		echo "<small>".$item->rated."</small>";
+
 		echo "<div class='panel-body'>";
 
 		while ($item->rating > 0) {

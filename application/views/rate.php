@@ -1,11 +1,21 @@
 <div class='container'>
 
-	<h1>
+	<div class = 'page-title'><h1>
 		<?php echo $drink[0]->brand;?>
+		<br />
 		<small>
 			<?php echo $drink[0]->description;?>
 		</small>
+		<small class='pull-right hidden'>
+			Retail Price: <?php echo $drink[0]->price;?>
+		</small>
+	</div>
 	</h1>
+
+<legend>
+</legend>
+
+	<i class='fa fa-user fa-2x pull-left'></i>
 
 	<div class="rating text-left">
 
@@ -16,43 +26,37 @@
 			$i--;
 		}
 		?>
-		
-
-
 	</div>
-<br />
 
-	<div class='col-md-6 panel panel-default'>
-			<div class='panel-body'>
+	<br />
 
-	<div class='col-md-6'>
-
-				<b>Users Rating:</b>
-
-				<?php 
-					while ($average_rating > 0) {
-						echo "<i class='fa fa-star text-warning'></i>";
-						$average_rating--;
+	<i class='fa fa-globe fa-x pull-left text-muted'></i>
+			<p class='led'>
+			<?php 
+				$r = $average_rating;
+				while ($r > 0) {
+					if ($r > 0.99) {
+						echo "<i class='fa fa fa-star text-muted'></i>";
+					} else {
+						echo "<i class='fa fa fa-star-half-o text-muted'></i>";
 					}
-				?>
-			</div>
-
-	<div class='col-md-6'>
-
-				<b>Retail Price:</b>
-
-
-				<?php echo $drink[0]->price; ?>
+					$r--;
+				}
+			?>
+		</p>
+			<br /><br />
+			<b>Retail Price:</b>
+			<?php echo $drink[0]->price; ?>
 
 
 
-				<br />
+
+
+<h2>Getting this?</h2>
 			</div>
 		</div>
 	</div>
 </div>
-
-
 
 
 <script type='text/javascript'>

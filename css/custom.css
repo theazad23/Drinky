@@ -260,7 +260,7 @@ text-shadow:0px 1px 0px #fdfffd;
 
 .rating {
   unicode-bidi: bidi-override;
-  font-size:30px;
+  font-size:19px;
   direction: rtl;
 }
 .rating > span {

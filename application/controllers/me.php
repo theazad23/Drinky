@@ -66,10 +66,9 @@ class me extends CI_Controller {
 		}
 
 
-		$this->db->select('alcohol_name, rating, rated');
+		$this->db->distinct('alcohol_name');
 		$this->db->from('drinky.ratings');
 		$this->db->where('username' ,$data['username']);
-		$this->db->group_by('alcohol_name, rating, rated');
 
 		$table_data = $this->db->get();
 
