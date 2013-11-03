@@ -54,7 +54,6 @@ class me extends CI_Controller {
 		redirect(site_url("console/dashboard"), 'refresh');
    	}
 
-
  	public function dashboard() {
 
 		if ($this->session->userdata('logged_in')) {
@@ -64,86 +63,20 @@ class me extends CI_Controller {
 			redirect('login', 'refresh');
 		}
 
-		$submitted = $this->input->post();	
-		$ordered = $this->input->post('order');
-		if($submitted)
-		{
-			if($ordered == 'highestrated')
-			{
-			$this->db->distinct('alcohol_name');
-                        $this->db->from('drinky.ratings');
-                        $this->db->where('username' ,$data['username']);
-                        $this->db->order_by('rating', 'desc');
 
-                        $table_data = $this->db->get();
+		$this->db->distinct('alcohol_name');
+		$this->db->from('drinky.ratings');
+		$this->db->where('username' ,$data['username']);
 
-                        $data['dashboard']['Drinks'] = $table_data->result();
+		$table_data = $this->db->get();
 
-                        $this->load->view('header');
-                        $this->load->view('me', $session_data);
-                        $this->load->view('dashboard', $data);
-			}
-			else if($ordered == 'lowestrated')
-			{
-			$this->db->distinct('alcohol_name');
-                        $this->db->from('drinky.ratings');
-                        $this->db->where('username' ,$data['username']);
-                        $this->db->order_by('rating', 'asc');
+		$data['dashboard']['Drinks'] = $table_data->result();
 
-                        $table_data = $this->db->get();
+		$this->load->view('header');
+		$this->load->view('me', $session_data);
+		$this->load->view('dashboard', $data);
 
-                        $data['dashboard']['Drinks'] = $table_data->result();
 
-                        $this->load->view('header');
-                        $this->load->view('me', $session_data);
-                        $this->load->view('dashboard', $data);
-			}
-			else if ($ordered == 'mostrecent')
-			{
-			$this->db->distinct('alcohol_name');
-                        $this->db->from('drinky.ratings');
-                        $this->db->where('username' ,$data['username']);
-                        $this->db->order_by('rated', 'desc');
-
-                        $table_data = $this->db->get();
-
-                        $data['dashboard']['Drinks'] = $table_data->result();
-
-                        $this->load->view('header');
-                        $this->load->view('me', $session_data);
-                        $this->load->view('dashboard', $data);
-			}
-			else if($ordered == 'leastrecent')
-			{
-			$this->db->distinct('alcohol_name');
-                        $this->db->from('drinky.ratings');
-                        $this->db->where('username' ,$data['username']);
-                        $this->db->order_by('rated', 'asc');
-
-                        $table_data = $this->db->get();
-
-                        $data['dashboard']['Drinks'] = $table_data->result();
-
-                        $this->load->view('header');
-                        $this->load->view('me', $session_data);
-                        $this->load->view('dashboard', $data);
-			}
-			}
-		else
-		{
-			$this->db->distinct('alcohol_name');
-                        $this->db->from('drinky.ratings');
-                        $this->db->where('username' ,$data['username']);
-                        $this->db->order_by('rating', 'desc');
-
-                        $table_data = $this->db->get();
-
-                        $data['dashboard']['Drinks'] = $table_data->result();
-
-                        $this->load->view('header');
-                        $this->load->view('me', $session_data);
-                        $this->load->view('dashboard', $data);
-		}
    	}
 
 	public function rate() {
@@ -167,12 +100,51 @@ class me extends CI_Controller {
 		  	));
 		}
 
+
+
+
+		if (isset($_GET['tags'])) {
+
+
+			$tags = $_GET['tags'];
+
+			foreach ($tags as $tag) {
+
+			$this->db->insert('drinky.tags', array( 
+				'alcohol_name' => $brand,
+				'tag' => $tag,
+				'username' => $data['username']
+	  		));
+
+			}
+
+
+
+			
+		}
+
+
+
 		$this->db->select('*');
 		$this->db->from('drinky.alcohols');
 		$this->db->where('brand' ,$brand);
 		$table_data = $this->db->get();
-
 		$data['drink'] = $table_data->result();
+
+
+		$this->db->select('tag');
+		$this->db->from('drinky.tags');
+		$this->db->where('alcohol_name' ,$brand);
+		$this->db->group_by('tag');
+		$table_data = $this->db->get();
+		$data['tags'] = $table_data->result();
+
+
+		$this->db->select('tag');
+		$this->db->from('drinky.tags');
+		$this->db->group_by('tag');
+		$table_data = $this->db->get();
+		$data['allTags'] = $table_data->result();
 
 		$this->db->select_avg('rating');
 		$this->db->from('drinky.ratings');
@@ -191,7 +163,8 @@ class me extends CI_Controller {
 
 
 
- public function everything() {
+
+ 	public function everything() {
 
       $this->load->view('header');
       $this->load->view('me', $session_data);
@@ -202,9 +175,29 @@ class me extends CI_Controller {
          $data['dashboard'][$table] = $table_data->result();
       }
       $this->load->view('dashboard', $data);
-   }
+   	}
 
-	
+
+
+
+   	public function addTagLibrary() {
+
+	$this->db->empty_table('drinky.tags');
+
+	   	$tag_lib = array(
+"Bitter", "Breezy", "Delicious", "Fluttering", "Fresh", "Fuzzy", "Greasy", "Grubby", "Hot", "Icy", "Juicy", "Melted", "Nutritious", "Plastic", "Prickly", "Rainy", "Ripe", "Rotten", "Salty", "Shaggy", "Shaky", "Shivering", "Silky", "Slimy", "Solid", "Sour", "Spicy", "Stale", "Steady", "Strong", "Sweet", "Tart", "Tasteless", "Tasty", "Thirsty", "Tight", "Weak", "Wet", "Wooden", "Yummy");
+
+
+
+
+	   	foreach($tag_lib as $tag){
+			$this->db->insert('drinky.tags', array( 
+				'tag' => $tag
+			));
+	   	}
+   		
+	}
+
 
 
 

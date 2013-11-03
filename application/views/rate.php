@@ -2,7 +2,6 @@
 
 	<div class = 'page-title'><h1>
 		<?php echo $drink[0]->brand;?>
-		<br />
 		<small>
 			<?php echo $drink[0]->description;?>
 		</small>
@@ -12,21 +11,8 @@
 	</div>
 	</h1>
 
-<legend></legend>
-
-	<i class='fa fa-user fa-2x pull-left'></i>
-	<div class="rating text-left">
-
-		<?php 
-		$i = 5;
-		while ($i){
-			echo "<span id=$i class='star'>☆</span>";
-			$i--;
-		}
-		?>
-	</div>
-
-	<br />
+<div class='row'>
+	<div class='col-md-2'>
 
 	<i class='fa fa-globe fa-x pull-left text-muted'></i>
 			<p class='led'>
@@ -42,59 +28,97 @@
 				}
 			?>
 		</p>
-			<br /><br />
+	
+	</div>
+	<div class='col-md-9'>
 
 
-        
-        <div>
-          <em>Tags</em>
- <select data-placeholder="Your Favorite Types of Bear" multiple class="chosen-select" style="width:350px;" tabindex="18" id="multiple-label-example">
-            <option selected>Amazing</option>
-            <option>Too sweet</option>
-            <option>Rediculous</option>
-            <option>Hangover!</option>
-            <option>good with twinkies</option>
-          </select>
-        </div>
-      </div>
+		<?php foreach($tags as $tag){
+			 	echo " <span class='text-muted'>";
+			 	echo " <i class='fa fa-fw fa-tag'></i>";
+			 	echo $tag->tag;
+			 	echo "</span> ";
+			 }?>
+
+
+	</div>
+	</div>
+
+
+<legend></legend>
+
+
+<div class='row'>
+
+<div class='col-md-3'>
+	<i class='fa fa-user fa-2x pull-left'></i>
+
+	<div class="rating text-left">
+
+		<?php 
+		$i = 5;
+		while ($i){
+			echo "<span id=$i class='star'>☆</span>";
+			$i--;
+		}
+		?>
+	</div>
+
+</div>
+
+<form class='form-inline tagsForm' action=''>
+
+	<input type="hidden" name="brand" value="<?php echo $drink[0]->brand;?>">
+	<div class='col-md-1'>
+		<i class='fa fa-fw fa-2x fa-tags pull-right'></i>
+	</div>
+	<div class='col-md-4'>
+		<select data-placeholder = "Select tags" 
+							name = "tags[]" multiple="yes"
+						   class = "chosen-select" 
+		    			  	  id = "tags">
+	        
+	        <option selected disabled>Add tags!</option>
+			 <?php foreach($allTags as $tag){
+			 	echo "<option value=$tag->tag>";
+			 	echo $tag->tag;
+			 	echo "</option>";
+			 }?>
+	  	</select>
+	</div>
+	<div class='col-md-1'>
+  		<input type='submit' value="Add" class="btn btn-default btn-sm btn-block">
+	</div>
+</form>
+
+</div>
+
+	<br />
+	<br />
+
+
+
+
+
+
 
   <script type="text/javascript">
     var config = {
-      '.chosen-select'           : {},
+      '.chosen-select'           : {no_results_text:"<a id='newTag'> New tag</a>"
+  									, width:"100%", search_contains:"true"},
+
+
+
+
       '.chosen-select-deselect'  : {allow_single_deselect:true},
       '.chosen-select-no-single' : {disable_search_threshold:10},
-      '.chosen-select-no-results': {no_results_text:'Oops, nothing found!'},
+      '.chosen-select-no-results': {no_results_text:"<a id='newTag'> New tag</a>"},
       '.chosen-select-width'     : {width:"95%"}
     }
     for (var selector in config) {
       $(selector).chosen(config[selector]);
     }
-  </script>
-  </form>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</h2>
-			</div>
-		</div>
-	</div>
-</div>
-
-
-<script type='text/javascript'>
 
 	// submit ratings the hard way.
 	$('.star').click(function() {
