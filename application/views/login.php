@@ -5,9 +5,10 @@
     </h1>
   <br />
   <div class="panel-body">
+   <?php echo form_open('verify'); ?>
     <form class='form form-horizontal' method='POST' action='verify'><br />
       <div class='form-group'>
-        <input type="email" name="username" id="username" class="form-control input-" placeholder="Email">
+        <input type="text" name="username" id="username" class="form-control input-" placeholder="Email">
       </div>
       <div class='form-group'>
         <input type="password" name="password" id="password" class="form-control input-" placeholder="Password">

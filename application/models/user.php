@@ -41,4 +41,3 @@ Class user extends CI_Model {
 
 
 ?>
-
